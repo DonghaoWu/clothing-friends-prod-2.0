@@ -4,7 +4,7 @@ import 'firebase/auth';
 require('dotenv').config();
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCLScrVHhqXfLaCS2Sg1IlxwNn_HSxjgZc",
+  apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
   authDomain: "clothing-friends-b4556.firebaseapp.com",
   databaseURL: "https://clothing-friends-b4556.firebaseio.com",
   projectId: "clothing-friends-b4556",
@@ -97,6 +97,31 @@ const getCurrentUser = () => {
   });
 };
 
+const getUserCartRef = async userId => {
+  const cartsRef = firestore.collection('carts').where('userId', '==', userId);
+  const snapShot = await cartsRef.get();
+
+  if (snapShot.empty) {
+    const cartDocRef = firestore.collection('carts').doc();
+    await cartDocRef.set({ userId, cartItems: [] });
+    return cartDocRef;
+  } else {
+    return snapShot.docs[0].ref;
+  }
+};
+
+const getUserOrdersRef = async userId => {
+  const ordersRef = firestore.collection('orders').where('userId', '==', userId);
+  const snapShot = await ordersRef.get();
+
+  if (snapShot.empty) {
+    const orderDocRef = firestore.collection('orders').doc();
+    await orderDocRef.set({ userId, orders: [] });
+    return orderDocRef;
+  } else {
+    return snapShot.docs[0].ref;
+  }
+};
 
 export {
   firebase,
@@ -107,5 +132,7 @@ export {
   createUserInFirestoreForUserSaga,
   googleSignInOrSignUpForUserSaga,
   convertCollectionsSnapshotToMap,
-  getCurrentUser
+  getCurrentUser,
+  getUserCartRef,
+  getUserOrdersRef
 }
