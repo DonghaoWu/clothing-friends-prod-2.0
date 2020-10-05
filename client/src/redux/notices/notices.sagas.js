@@ -1,4 +1,4 @@
-import { takeLatest, put, all, call, delay } from 'redux-saga/effects';
+import { takeLatest, put, all, call, delay, takeEvery } from 'redux-saga/effects';
 
 import {
     SIGN_IN_SUCCESS,
@@ -36,7 +36,7 @@ export function* signInFailureNotice(action) {
 }
 
 export function* onSignInFailure() {
-    yield takeLatest(SIGN_IN_FAILURE, signInFailureNotice);
+    yield takeEvery(SIGN_IN_FAILURE, signInFailureNotice);
 }
 
 export function* signOutSuccessNotice() {
@@ -80,7 +80,7 @@ export function* emailSignUpFailureNotice(action) {
 }
 
 export function* onEmailSignUpFailure() {
-    yield takeLatest(EMAIL_SIGN_UP_FAILURE, emailSignUpFailureNotice);
+    yield takeEvery(EMAIL_SIGN_UP_FAILURE, emailSignUpFailureNotice);
 }
 
 export function* orderPlacedSuccessNotice() {
