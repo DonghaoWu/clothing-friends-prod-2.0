@@ -30,7 +30,7 @@ export function* onSignInSuccess() {
 
 export function* signInFailureNotice(action) {
     const id = uuid();
-    yield put(addNotice(`Sign in Failure:  ${setErrorMessage(action.payload.code)}`, 'danger', id));
+    yield put(addNotice(`Sign in failure:  ${setErrorMessage(action.payload.code)}`, 'danger', id));
     yield delay(2500);
     yield put(removeNotice(id));
 }
@@ -52,7 +52,7 @@ export function* onSignOutSuccess() {
 
 export function* signOutFailureNotice(action) {
     const id = uuid();
-    yield put(addNotice(`Sign out Failure: ${setErrorMessage(action.payload.code)}`, id));
+    yield put(addNotice(`Sign out failure: ${setErrorMessage(action.payload.code)}`, id));
     yield delay(2500);
     yield put(removeNotice(id));
 }
@@ -74,7 +74,7 @@ export function* onEmailSignUpSuccess() {
 
 export function* emailSignUpFailureNotice(action) {
     const id = uuid();
-    yield put(addNotice(`Email sign up Failure: ${setErrorMessage(action.payload.code)}`, 'danger', id));
+    yield put(addNotice(`Email sign up failure: ${setErrorMessage(action.payload.code)}`, 'danger', id));
     yield delay(2500);
     yield put(removeNotice(id));
 }
@@ -96,7 +96,7 @@ export function* onOrderPlacedSuccess() {
 
 export function* orderPlacedFailureNotice(action) {
     const id = uuid();
-    yield put(addNotice(`Order placed Failur: ${setErrorMessage(action.payload.code)}`, 'danger', id));
+    yield put(addNotice(`Order placed failure: ${setErrorMessage(action.payload.code)}`, 'danger', id));
     yield delay(2500);
     yield put(removeNotice(id));
 }
