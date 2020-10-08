@@ -1,9 +1,10 @@
 .notice {
-    width:23%;
+    min-width:15%;
     opacity: 0.9;
     background: #f4f4f4;
     color: #333;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
+    padding: 0 20px 0 20px;
   }
 
   .notice-primary {
