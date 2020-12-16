@@ -9,13 +9,13 @@ an e-commerce site, with react, firebase, redux-saga, react-hooks, react perform
 --------------------------------------------------------------
 
 <p align="center">
-<img src="./assets/clothing-friends-02.png" width=85%>
+<img src="./assets/clothing-friends-04.png" width=85%>
 </p>
 
 --------------------------------------------------------------
 
 <p align="center">
-<img src="./assets/clothing-friends-04.png" width=85%>
+<img src="./assets/clothing-friends-02.png" width=85%>
 </p>
 
 --------------------------------------------------------------
